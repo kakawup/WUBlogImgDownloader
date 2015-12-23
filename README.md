@@ -1,5 +1,3 @@
-% -*- coding: utf-8 -*-
-
 # WUBlog Image Downloader
 
 ## 概要
@@ -30,19 +28,19 @@
     $ tree WUG
     WUG
     ├── airi
-    │    └── ***.jpg
+    │   └── ***.jpg
     ├── kaya
-    │    └── ***.jpg
+    │   └── ***.jpg
     ├── mayu
-    │    └── ***.jpg
+    │   └── ***.jpg
     ├── minami
-    │    └── ***.jpg
+    │   └── ***.jpg
     ├── miyu
-    │    └── ***.jpg
+    │   └── ***.jpg
     ├── nanami
-    │    └── ***.jpg
+    │   └── ***.jpg
     └── yoshino
-          └── ***.jpg
+        └── ***.jpg
 
 みたいに画像が保存される.
 

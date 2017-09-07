@@ -2,14 +2,19 @@
 
 ## 概要
 
-声優ユニット[Wake Up, Girls!](http://wug-portal.jp/)7人のメンバーが,
-曜日ごとに更新している[オフィシャルブログ](http://ameblo.jp/wakeupgirls/)に投稿した写真をダウンロードしてくれるやつです.
+声優ユニット[Wake Up, Girls!](http://wug-portal.jp/)7人のメンバー及び，
+同じく声優ユニット[Run Girls, Run!](http://rungirlsrun.jp/)が，
+曜日ごとに更新しているオフィシャルブログに投稿した写真をダウンロードしてくれるやつです．
+
++ [Wake Up, Girls! Official Blog](https://ameblo.jp/wakeupgirls/)
++ [Run Girls, Run! Official Blog](https://ameblo.jp/rungirlsrun/)
 
 
 ## 環境
 
 + Python: 2.7.6
 + Scrapy: 1.0.3
+
 
 ### Scrapyのインストール
 
@@ -18,10 +23,11 @@
 
 ## 使い方
 
+    $ git clone https://github.com/kakawup/WUBlogImgDownloader.git
     $ cd WUGBlog
-    $ scrapy crawl WUGBlog -o wugblog.json
+    $ scrapy crawl [WUGBlog | RGRBlog] -o BLOG_IMAGE.json
     $ cd ..
-    $ python downloader.py WUGBlog/wugblog.json WUG
+    $ python downloader.py WUGBlog/BLOG_IMAGE.json [WUG | RGR]
 
 これでデフォルトなら
 

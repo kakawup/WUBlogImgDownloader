@@ -3,7 +3,9 @@
 
 from scrapy.spiders import CrawlSpider
 from scrapy.http.request import Request
+
 from WUGBlog.items import BlogImage
+from WUGBlog.settings import CONFIG
 
 import re
 
@@ -59,10 +61,9 @@ class WUGBlog(BaseBlog):
     name         = "WUGBlog"
     member_num   = 7
 
-    # User Setting
-    name_list    = ["mayu", "airi", "minami", "yoshino", "nanami", "kaya", "miyu"]
-    start_urls   = ["https://ameblo.jp/wakeupgirls/entry-11600411806.html"]
-    page_counter = 0
+    name_list    = CONFIG["WUG"]["name_list"]
+    start_urls   = CONFIG["WUG"]["start_url"]
+    page_counter = CONFIG["WUG"]["start_member"]
 
 
 # ==================================================
@@ -73,7 +74,6 @@ class RGRBlog(BaseBlog):
     name         = "RGRBlog"
     member_num   = 3
 
-    # User Setting
-    name_list    = ["koko", "yuka", "atsugi"]
-    start_urls   = ["https://ameblo.jp/rungirlsrun/entry-12297485190.html"]
-    page_counter = 0
+    name_list    = CONFIG["RGR"]["name_list"]
+    start_urls   = CONFIG["RGR"]["start_url"]
+    page_counter = CONFIG["RGR"]["start_member"]

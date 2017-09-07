@@ -16,20 +16,23 @@
 + Scrapy: 1.0.3
 
 
+## 使い方
+
 ### Scrapyのインストール
 
     $ pip install Scrapy
 
-
-## 使い方
+### ダウンロード
 
     $ git clone https://github.com/kakawup/WUBlogImgDownloader.git
+
+
+### 実行
+
     $ cd WUGBlog
     $ scrapy crawl [WUGBlog | RGRBlog] -o BLOG_IMAGE.json
     $ cd ..
     $ python downloader.py WUGBlog/BLOG_IMAGE.json [WUG | RGR]
-
-これでデフォルトなら
 
     $ tree WUG
     WUG
@@ -48,6 +51,20 @@
     └── yoshino
         └── ***.jpg
 
-みたいに画像が保存される.
+### 設定
 
-各メンバーごとの保存先ディレクトリ名やファイル名のフォーマットは `WUGBlog/WUGBlog/spiders/wugblog.py` で変更できます.
+./WUGBlog/WUGBlog/settings.py
+
+```python:settings.py
+DOWNLOAD_DELAY = 3   # クロール間隔 [s]
+CONFIG = {
+    "WUG": {
+        "name_list": ["mayu", "airi", "minami", "yoshino", "nanami", "kaya", "miyu"],   # 保存先ディレクトリ名
+        "start_url": ["https://ameblo.jp/wakeupgirls/entry-11600411806.html"],          # アクセス開始ページ
+        "start_member": 0                                                               # 開始ページの担当
+    },
+    "RGR": {
+        ...
+    }
+}
+```

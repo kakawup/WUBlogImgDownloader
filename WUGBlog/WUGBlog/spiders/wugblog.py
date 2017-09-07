@@ -34,12 +34,12 @@ class BaseBlog(CrawlSpider):
 
                 try:
                     # Get date
-                    DATE_PAT = re.compile("https://stat.ameba.jp/user_images/(.*?)/(.*?)/(.*?)/(.*?)/(.*?)/(.*?)/(.*?)")
+                    DATE_PAT = re.compile("https://stat.ameba.jp/user_images/(.*?)/(.*?)/(.*?)/(.*?)/(.*?)/(.*?)/(.*?)\.(.*?)\?(.*?)")
                     date = DATE_PAT.findall(img)[0]
 
                     # Set blog data
                     item = BlogImage()
-                    item["title"]  = date[0] + date[1] + "-" + str(index) + ".jpg"
+                    item["title"]  = date[0] + date[1] + "-" + str(index) + "." + date[7]
                     item["path"]   = img
                     item["author"] = self.name_list[self.page_counter % self.member_num]
 

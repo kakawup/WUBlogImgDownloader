@@ -10,13 +10,15 @@ import re
 NAME_LIST  = ["mayu", "airi", "minami", "yoshino", "nanami", "kaya", "miyu"]
 CURRENT_ID = 0  # 開始記事の担当メンバーID (0~6)
 
+URL_PREFIX = "https:"
+
 
 class WUGBlog(CrawlSpider):
     name = "WUGBlog"
 
     # アメブロのWUGブログ内の個別記事ページのみを探索
     allowed_domains = ["ameblo.jp"]
-    start_urls      = ["http://ameblo.jp/wakeupgirls/entry-11600411806.html"]
+    start_urls      = ["https://ameblo.jp/wakeupgirls/entry-11600411806.html"]
 
     # 担当者名用カウンタ
     pageCounter = CURRENT_ID
@@ -26,7 +28,7 @@ class WUGBlog(CrawlSpider):
         # 次の記事へ
         nextPage = response.css(".skin-pagingPrev::attr('href')").extract()
         if nextPage:
-            yield Request(nextPage[0], self.parse)
+            yield Request(URL_PREFIX + nextPage[0], self.parse)
 
         # ページ内の画像を全て取得
         imgs = response.css("a.detailOn > img::attr('src')").extract()
@@ -43,7 +45,7 @@ class WUGBlog(CrawlSpider):
 
                 try:
                     # 日付データ取得
-                    DATE_PAT = re.compile("http://stat.ameba.jp/user_images/(.*?)/(.*?)/(.*?)/(.*?)/(.*?)/(.*?)/(.*?)")
+                    DATE_PAT = re.compile("https://stat.ameba.jp/user_images/(.*?)/(.*?)/(.*?)/(.*?)/(.*?)/(.*?)/(.*?)")
                     date = DATE_PAT.findall(img)[0]
 
                     # データセット

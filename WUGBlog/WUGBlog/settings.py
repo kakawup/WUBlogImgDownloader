@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 
-BOT_NAME = 'WUGBlog'
+# Target
+BOT_NAME         = "WUGBlog"
+SPIDER_MODULES   = ["WUGBlog.spiders"]
+NEWSPIDER_MODULE = "WUGBlog.spiders"
 
-SPIDER_MODULES = ['WUGBlog.spiders']
-NEWSPIDER_MODULE = 'WUGBlog.spiders'
 
-
-# My Setting
-ROBOTSTXT_OBEY = True
+# Base
+ROBOTSTXT_OBEY  = True
+DOWNLOAD_DELAY  = 3
+COOKIES_ENABLED = False

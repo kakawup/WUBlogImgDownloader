@@ -3,7 +3,7 @@
 from scrapy.item import Item, Field
 
 
-class PageImgItem(Item):
+class BlogImage(Item):
     title  = Field()
     path   = Field()
     author = Field()
